@@ -1,0 +1,17 @@
+es:
+  navigation:
+    galleries:
+      name: GALERIAS
+      url: /galerias
+    vita:
+      name: VIDA
+      url: /curriculo
+    contact:
+      name: CONTACTO
+      url: /contacto
+    impress:
+      name: AVISIO LEGAL
+      url: /avisio_legal
+    welcome:
+      name: NIL
+      url: /bienvenido

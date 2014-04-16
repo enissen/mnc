@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @image.name
+%p
+  %b Material:
+  = @image.material
+%p
+  %b Dimension:
+  = @image.dimension
+%p
+  %b Description:
+  = @image.description
+
+%p 
+  = image_tag @image.file.url(:thumb)
+
+= link_to 'Edit', edit_image_path(@image)
+\|
+= link_to 'Back', images_path

@@ -1,0 +1,27 @@
+!!! 5
+- html_tag :class => 'no-js' do
+  = render 'head'
+
+  %body{ :class => "#{ controller.controller_name }" }
+    
+    .wrapper
+      = render 'chromeframe'
+      = render 'flashes'      
+
+      - if intro?
+        
+        .intro#intro= yield
+      
+      - else
+        
+        .container#container
+          - if cookies[:locale].present?
+            =cookies[:locale][:value]
+          .top-panel= render 'panel'
+          .logo
+          .nav= render 'navigation'
+          .content= yield
+
+      = render 'footer'
+
+    = render 'javascripts'

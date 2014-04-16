@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%h1
+  = @contact.title
+
+%p= markdown(@contact.content)
+
+- if user_signed_in?
+  = link_to 'Edit', edit_contact_path(@contact)

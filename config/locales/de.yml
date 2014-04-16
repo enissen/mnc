@@ -1,0 +1,17 @@
+de:
+  navigation:
+    galleries:
+      name: GALERIEN
+      url: /galerien
+    vita:
+      name: VITA
+      url: /lebenslauf
+    contact:
+      name: KONTAKT
+      url: /kontakt
+    impress:
+      name: IMPRESSUM
+      url: /impressum
+    welcome:
+      name: NIL
+      url: /willkommen

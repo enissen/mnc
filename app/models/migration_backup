@@ -1,0 +1,25 @@
+class CreateImages < ActiveRecord::Migration
+  def up
+    create_table :images do |t|
+      t.timestamps
+    end
+    Image.create_translation_table! name: :string, material: :string, description: :text
+  end
+
+  def down
+    drop_table :contacts
+    Contact.drop_translation_table!
+  end
+
+
+  def change
+    create_table :images do |t|
+      t.string :name
+      t.string :dimension
+      t.string :material
+      t.text :description
+
+      t.timestamps
+    end
+  end
+end

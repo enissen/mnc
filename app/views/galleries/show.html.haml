@@ -1,0 +1,32 @@
+%p#notice= notice
+
+%p
+  %b Title:
+  = @gallery.title
+%p
+  %b Description:
+  = @gallery.description
+
+- if @gallery.images.empty?
+  .row
+    .col-md-12.thumb
+      No images
+      %br
+
+- else       
+  - @gallery.images.each_with_index do |img, i|
+    - if i % 4 == 0
+      .row
+
+    .col-md-3.thumb
+      = image_tag img.file.url(:thumb)
+
+
+%br
+.row
+  .col-md-12.thumb
+    = link_to 'Edit', edit_gallery_path(@gallery)
+    \|
+    = link_to 'Back', galleries_path
+    \|
+    = link_to 'New Image', new_image_path
