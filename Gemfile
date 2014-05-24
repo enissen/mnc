@@ -8,7 +8,7 @@ gem 'mysql2'
 gem 'sass-rails',           '~> 4.0.0'
 gem 'uglifier',             '>= 1.3.0'
 gem 'coffee-rails',         '~> 4.0.0'
-gem 'therubyracer',         platforms: :ruby
+#gem 'therubyracer',         platforms: :ruby
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'compass-rails',        '1.1.2'
@@ -31,16 +31,25 @@ end
 # SERVER
 # -----------------------------
 gem "thin",                  "~> 1.5.1"
+gem 'unicorn'
+
+
+# DEVELOPMENT
+# ------------------------------
+group :development do
+  gem 'capistrano',           '~> 3.1', require: false
+  gem 'capistrano-rails',     '~> 1.1', require: false
+  gem 'capistrano-bundler',   '~> 1.1', require: false
+  gem 'capistrano-rbenv',     '~> 2.0', require: false
+end
 
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 
 # Use unicorn as the app server
-# gem 'unicorn'
 
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
+
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]

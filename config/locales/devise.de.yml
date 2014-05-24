@@ -6,7 +6,7 @@ de:
       send_instructions: "Du erhältst in wenigen Minuten eine E-Mail, mit der Du Deine Registrierung bestätigen kannst."
       send_paranoid_instructions: "Falls Deine E-Mail-Adresse in unserer Datenbank existiert erhältst Du in wenigen Minuten eine E-Mail mit der Du Deine Registrierung bestätigen kannst."
     failure:
-      already_authenticated: "Du bist bereits angemeldet."
+      already_authenticated: "Du bist bereits angemeldet!"
       inactive: "Dein Account ist nicht aktiv."
       invalid: "Ungültige Anmeldedaten."
       invalid_token: "Der Anmelde-Token ist ungültig."
