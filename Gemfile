@@ -30,8 +30,8 @@ end
 
 # SERVER
 # -----------------------------
-gem "thin",                  "~> 1.5.1"
-gem 'unicorn'
+gem "thin",                   "~> 1.5.1"
+gem 'unicorn',                '~> 4.8.3'
 
 
 # DEVELOPMENT

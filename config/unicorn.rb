@@ -1,12 +1,14 @@
-working_directory "/home/deploy/sites/miguelnager.com/current"
+root = "/home/deploy/sites/miguelnager.com/current"
 
-pid "#{working_directory}/pids/unicorn.pid"
+working_directory "#{root}"
 
-stderr_path "#{working_directory}/log/unicorn.log"
-stdout_path "#{working_directory}/log/unicorn.log"
+pid "#{root}/pids/unicorn.pid"
+
+stderr_path "#{root}/log/unicorn.log"
+stdout_path "#{root}/log/unicorn.log"
 
 listen "/tmp/unicorn.miguelnager.sock"
-listen "/tmp/unicorn.myapp.sock"
+#listen "/tmp/unicorn.myapp.sock"
 
 # worker_processes 4
 worker_processes 2
