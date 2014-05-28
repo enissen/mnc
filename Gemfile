@@ -30,8 +30,10 @@ end
 
 # SERVER
 # -----------------------------
-gem "thin",                   "~> 1.5.1"
-gem 'unicorn',                '~> 4.8.3'
+#gem "thin",                   "~> 1.5.1"
+#gem 'unicorn',                '~> 4.8.3'
+gem 'puma',                   '~> 2.8.2'
+#gem 'foreman',                '~> 0.66.0'
 
 
 # DEVELOPMENT
@@ -41,15 +43,6 @@ group :development do
   gem 'capistrano-rails',     '~> 1.1', require: false
   gem 'capistrano-bundler',   '~> 1.1', require: false
   gem 'capistrano-rbenv',     '~> 2.0', require: false
+  gem 'better_errors',        '~> 1.1.0'
+  gem 'binding_of_caller'
 end
-
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.1.2'
-
-# Use unicorn as the app server
-
-
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
