@@ -1,0 +1,1 @@
+web: bundle exec puma -p 5000 --config config/puma.rb
