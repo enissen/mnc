@@ -4,7 +4,7 @@
 #
 # The default is the current directory.
 #
-directory Dir.pwd #'/u/apps/lolcat'
+directory Dir.pwd
 
 # Use an object or block as the rack application. This allows the
 # config file to be the application itself.
@@ -34,7 +34,7 @@ environment 'production'
 #
 # The default is “false”.
 #
-# daemonize
+daemonize
 # daemonize false
 
 # Store the pid of the server in the file at “path”.
@@ -50,7 +50,7 @@ state_path Dir.pwd << '/tmp/pids/puma.state'
 # (“append”) specifies whether the output is appended, the default is
 # “false”.
 #
-# stdout_redirect '/u/apps/lolcat/log/stdout', '/u/apps/lolcat/log/stderr'
+stdout_redirect Dir.pwd << '/log/stdout', Dir.pwd << '/log/stderr'
 # stdout_redirect '/u/apps/lolcat/log/stdout', '/u/apps/lolcat/log/stderr', true
 
 # Disable request logging.
