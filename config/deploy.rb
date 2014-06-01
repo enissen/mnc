@@ -63,9 +63,10 @@ namespace :deploy do
       # Here we can do anything such as:
       # within release_path do
       #   execute :rake, 'cache:clear'
-      # 
+      #
     # end
     end
   end
 
+  after :deploy, "puma:restart"
 end
