@@ -28,6 +28,7 @@ Mnc::Application.routes.draw do
     as :user do
       get "/login"      => "devise/sessions#new"
       delete "/logout"  => "devise/sessions#destroy"
+      get "signup"      => "devise/registrations#new"
     end
 
     resources :galleries do
