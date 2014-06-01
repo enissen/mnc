@@ -2,8 +2,10 @@ namespace :puma do
 
   desc "Restart puma webserver."
   task :restart do
-    within "#{release_path}" do
-      execute "bin/puma.sh restart"
+    on roles(:app) do
+      within release_path do
+        execute "bin/puma.sh restart"
+      end
     end
   end
 end
