@@ -4,7 +4,7 @@ namespace :puma do
   task :restart do
     on roles(:app) do
       within current_path do
-        execute "cd #{current_path}; bin/puma.sh restart"
+        execute "cd #{current_path}; RBENV_ROOT=~/.rbenv RBENV_VERSION=2.1.2 /usr/bin/env bin/puma.sh restart"
       end
     end
   end
