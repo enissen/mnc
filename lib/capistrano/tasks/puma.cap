@@ -4,7 +4,7 @@ namespace :puma do
   task :restart do
     on roles(:app) do
       within release_path do
-        execute "cd '#{release_path}'; bin/puma.sh restart"
+        execute "cd #{release_path}; bin/puma.sh restart"
       end
     end
   end

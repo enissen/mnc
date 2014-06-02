@@ -68,5 +68,5 @@ namespace :deploy do
     end
   end
 
-  after :restart, "puma:restart"
+  after :finished, "puma:restart"
 end
