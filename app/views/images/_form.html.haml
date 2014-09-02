@@ -1,23 +1,21 @@
-= form_for @image, html: { multipart: true, role: "form" } do |f|
-
+= form_for @image, html: { multipart: true, role: 'form' } do |f|
   - if @image.errors.any?
     #error_explanation
       %h2= "#{pluralize(@image.errors.count, "error")} prohibited this impress from being saved:"
       %ul
         - @image.errors.full_messages.each do |msg|
           %li= msg
-
   .form-group
-    = f.text_field :name, class: "form-control", placeholder: "name"
+    = f.text_field :name, class: 'form-control', placeholder: 'name'
   .form-group
-    = f.text_field :material, class: "form-control", placeholder: "material"
+    = f.text_field :material, class: 'form-control', placeholder: 'material'
   .form-group
-    = f.text_field :dimension, class: "form-control", placeholder: "dimension"
+    = f.text_field :dimension, class: 'form-control', placeholder: 'dimension'
   .form-group
     = f.file_field :file
   .form-group
-    = f.collection_select :gallery_ids, Gallery.all,:id,:title,{},{multiple: true,size: 5,class: "form-control"}
+    = f.collection_select :gallery_ids, Gallery.all,:id,:title,{},{multiple: true,size: 5,class: 'form-control'}
   .form-group
-    = f.text_area :description, class: "form-control huge_content", placeholder: "description"
+    = f.text_area :description, class: 'form-control huge_content', placeholder: 'description'
   .form-group
-    = f.submit 'Save', class: "btn btn-primary"
+    = f.submit 'Save', class: 'btn btn-primary'

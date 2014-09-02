@@ -21,3 +21,7 @@ preview.txt
 
 # artefacts
 .DS_Store
+
+# img files
+public/system/images/**/*
+public/system/galleries/**/*

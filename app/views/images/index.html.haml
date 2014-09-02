@@ -1,16 +1,13 @@
--# %h1 Listing galleries
-
 - @images.each_with_index do |image, i|
-
-
-  %p= image.name
+  %p
+    = image.name
   %p
     = image_tag image.file(:thumb)
-    = link_to "Edit", edit_image_path(image)
+    = link_to 'Edit', edit_image_path(image)
     = link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' }
-
-.row
-  .col-md-12
-    =link_to 'New Gallery', new_gallery_path
-    |
-    = link_to 'New Image', new_image_path
+- if user_signed_in?
+  .row
+    .col-md-12
+      =link_to 'New Gallery', new_gallery_path
+      |
+      = link_to 'New Image', new_image_path

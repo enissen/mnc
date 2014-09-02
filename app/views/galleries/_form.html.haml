@@ -1,18 +1,15 @@
-= form_for @gallery, html: { multipart: true, role: "form" } do |f|
+= form_for @gallery, html: { multipart: true, role: 'form' } do |f|
   - if @gallery.errors.any?
     #error_explanation
       %h2= "#{pluralize(@gallery.errors.count, "error")} prohibited this gallery from being saved:"
       %ul
         - @gallery.errors.full_messages.each do |msg|
           %li= msg
-
   .form-group
-    = f.label :title
-    = f.text_field :title
+    = f.text_field :title, class: 'form-control', placeholder: 'gallery title'
   .form-group
-    = f.label :description
-    = f.text_area :description
+    = f.text_area :description, class: 'form-control huge_content', placeholder: 'description'
   .form-group
     = f.file_field :picture
   .form-group
-    = f.submit 'Save'
+    = f.submit 'Save', class: 'btn btn-primary'

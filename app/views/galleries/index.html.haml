@@ -1,25 +1,24 @@
--# %h1 Listing galleries
-
 - @galleries.each_with_index do |gallery, i|
   - if i % 3 == 0
     .row
-
   .col-md-4.thumb
     .thumbnail
-      =link_to gallery do 
-        = image_tag gallery.picture.url(:medium), class: "img-responsive"
-        .caption
-          %h4= gallery.title
-          %p= gallery.description
-          %p
+      = link_to gallery do
+        - if user_signed_in?
+          .thumbnail_edit
+          .thumbnail_icons
             = link_to edit_gallery_path(gallery) do
-              %span{class: "glyphicon glyphicon-edit"}
-
+              %span{class: 'glyphicon glyphicon-edit'}
             = link_to gallery, method: :delete, data: { confirm: 'Are you sure?' } do
-              %span{class: "glyphicon glyphicon-trash"}
-
-.row
-  .col-md-12
-    =link_to 'New Gallery', new_gallery_path
-    |
-    = link_to 'New Image', new_image_path
+              %span{class: 'glyphicon glyphicon-trash'}
+      = link_to gallery do
+        = image_tag gallery.picture.url(:thumb), class: 'img-responsive'
+        .thumbnail_overlay
+        .thumbnail_caption
+          = gallery.title
+- if user_signed_in?
+  .row
+    .col-md-12
+      =link_to 'New Gallery', new_gallery_path
+      |
+      = link_to 'New Image', new_image_path

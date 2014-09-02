@@ -6,13 +6,13 @@
 // Layout styles
 //-----------------------------------------
 
-$main-width:      80%;
-$main-margin:     10%;
+$main-width:        80%;
+$main-margin:       10%;
 
-$dev-border:      0px;
+$dev-border:        0px;
 
-$primary-color:   #777;
-$font-stack:      'Ruda', sans-serif;
+$primary-color:     #777;
+$font-stack:        'Ruda', sans-serif;
 
 // $font-stack:      'Averia Sans Libre', cursive;
  //$font-stack:      'Averia Serif Libre', cursive;
@@ -21,39 +21,50 @@ $font-stack:      'Ruda', sans-serif;
 
 //-----------------------------------------
 
-
-html {  background: #fff; }
-
-body { }
-
-
-.container {
-  margin-left:    10%;
-  width:          80%;
-  border:         $dev-border solid #000;
-  color:          $primary-color;
-  font:           100% $font-stack;
+html {
+  background:       #fff;
+  height:           100%;
 }
-
+body {
+  height:           100%;
+  border:           $dev-border solid #FF0000;
+}
+.container-fluid {
+  height:           100%;
+  border:           1px solid yellow;
+}
+.intro_content {
+  height:           24%;
+  border:           1px solid green;
+}
+.intro_top {
+  height:           40%;
+}
+.intro_bottom {
+  height:           38%;
+}
+.container {
+  margin-left:      10%;
+  width:            80%;
+  border:           $dev-border solid #000;
+  color:            $primary-color;
+  font:             100% $font-stack;
+}
 .top-panel {
   margin-left:      $main-margin;
   width:            $main-width;
   height:           30px;
   border:           $dev-border solid #000;
-
   .user_nav {
     float:          left;
-
     a.login {
       color:        #fff;
     }
   }
-
   .lang_nav {
     float:          right;
   }
 }
-
 .logo {
   margin-left:      $main-margin;
   margin-top:       2%;
@@ -63,14 +74,12 @@ body { }
   background:       #fff image-url('intro/nager-intro-01.png') 50% 0 no-repeat;
   background-size:  auto 100%;
 }
-
 .nav {
-  margin-left:  $main-margin;
-  margin-top:   5px;
-  width:        $main-width;
-  height:       50px;
-  border:       $dev-border solid green;
-
+  margin-left:      $main-margin;
+  margin-top:       5px;
+  width:            $main-width;
+  height:           50px;
+  border:           $dev-border solid green;
   ul {
     width:        80%;
     height:       100%;
@@ -79,28 +88,22 @@ body { }
     margin-top:   0%;
     padding:      0;
     border-top:   1px solid #777;
-
-
     li {
       display:    block;
       float:      left;
       width:      25%;
       border:     $dev-border solid red;
       text-align: center;
-
       a {
         display:  block;
         margin:   7px 5px;
         border:   $dev-border solid green;
         padding:  3px 0px;
         color:    #777;
-
         &:hover {
           color:            #000;
-          // font-weight:      bold;
           text-decoration:  none;
         }
-
         &:active {
           color:            #000;
           font-weight:      bold;
@@ -109,7 +112,6 @@ body { }
     }
   }
 }
-
 .content {
   margin-left:  $main-margin;
   margin-top:   40px;

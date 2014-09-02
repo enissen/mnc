@@ -8,6 +8,7 @@ class GalleriesController < ApplicationController
   # GET /galleries/1
   # GET /galleries/1.json
   def show
+    @images = @gallery.images
   end
 
   # GET /galleries/new
@@ -22,6 +23,7 @@ class GalleriesController < ApplicationController
   # POST /galleries
   # POST /galleries.json
   def create
+    gallery_params[:description] = gallery_params[:description].strip
     @gallery = Gallery.new(gallery_params)
 
     respond_to do |format|
@@ -39,6 +41,7 @@ class GalleriesController < ApplicationController
   # PATCH/PUT /galleries/1.json
   def update
     respond_to do |format|
+      gallery_params[:description] = gallery_params[:description].strip
       if @gallery.update(gallery_params)
         format.html { redirect_to @gallery, notice: 'Gallery was successfully updated.' }
         format.json { head :no_content }

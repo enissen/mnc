@@ -1,9 +1,8 @@
-%p#notice= notice
-
+%p#notice
+  = notice
 %h1
   = @impress.title
-
-%p= markdown(@impress.content)
-
+%p
+  = markdown(@impress.content)
 - if user_signed_in?
   = link_to 'Edit', edit_impress_path(@impress)
