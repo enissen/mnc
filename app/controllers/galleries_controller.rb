@@ -1,27 +1,22 @@
 class GalleriesController < ApplicationController
   before_action :set_gallery, only: [:show, :edit, :update, :destroy]
+  before_filter :authenticate_user!, except: [:show, :index]
 
   def index
     @galleries = Gallery.all
   end
 
-  # GET /galleries/1
-  # GET /galleries/1.json
   def show
     @images = @gallery.images
   end
 
-  # GET /galleries/new
   def new
     @gallery = Gallery.new
   end
 
-  # GET /galleries/1/edit
   def edit
   end
 
-  # POST /galleries
-  # POST /galleries.json
   def create
     gallery_params[:description] = gallery_params[:description].strip
     @gallery = Gallery.new(gallery_params)
@@ -37,8 +32,6 @@ class GalleriesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /galleries/1
-  # PATCH/PUT /galleries/1.json
   def update
     respond_to do |format|
       gallery_params[:description] = gallery_params[:description].strip
@@ -52,8 +45,6 @@ class GalleriesController < ApplicationController
     end
   end
 
-  # DELETE /galleries/1
-  # DELETE /galleries/1.json
   def destroy
     @gallery.destroy
     respond_to do |format|
@@ -63,12 +54,10 @@ class GalleriesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_gallery
       @gallery = Gallery.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def gallery_params
       params.require(:gallery).permit(:title, :description, :picture)
     end

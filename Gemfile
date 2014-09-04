@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+source 'https://rails-assets.org'
 
 gem 'rails',                  '4.0.3'
 
@@ -17,12 +18,18 @@ gem 'devise'
 gem 'globalize',              '~> 4.0.0'
 gem 'jbuilder',               '~> 1.2'
 gem 'redcarpet'
-gem "paperclip",              '~> 4.1'
+gem 'paperclip',              '~> 4.1'
+gem 'quiet_assets',           '~> 1.0.1'
 gem 'jcrop-rails-v2',         '~> 0.9.12.3'
+gem 'gon',                    '~> 5.2.0'
 
 group :doc do
   gem 'sdoc', require: false
 end
+
+# FRONTEND
+# -----------------------------
+gem 'rails-assets-gray'
 
 # SERVER
 # -----------------------------

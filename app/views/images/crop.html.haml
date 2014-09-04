@@ -1,0 +1,12 @@
+%h1 Crop image
+= image_tag @image.file.url(:thumb), id: 'cropbox', data: {img_id: @image.id}
+%h4 Preview:
+.image_preview
+  = image_tag @image.file.url(:thumb), id: 'preview'
+= form_for @image, html: {role: 'form'} do |f|
+  .form-group
+    - [:crop_x, :crop_y, :crop_w, :crop_h].each do |attribute|
+      = f.hidden_field attribute , id: attribute
+  .form-group
+    = f.submit 'Crop', class: 'btn btn-primary'
+= link_to 'Back', images_path

@@ -22,32 +22,17 @@
       - if i % 3 == 0
         .row
       .col-md-4.thumb
-        = link_to 'javascript:void(0)' do
-          = image_tag img.file.url(:thumb), data: {id: "#{img.id}"}, class: 'gallery_thumb'
-.carousel_wrapper
-  .row
-    .col-md-12
-      #gallery_carousel.carousel{data: {ride: 'carousel'}}
-        .carousel-exit
-          = link_to 'javascript:void(0)' do
-            %span.glyphicon.glyphicon-remove-circle
-        %ol.carousel-indicators
-          - i = 0
-          - @images.each do |img|
-            - class_activity = img == @images.first ? 'active' : ''
-            %li.indicator{class: "#{class_activity}", id: "indicator_of_img_#{img.id}", data: {target: '#gallery_carousel', 'slide-to' => "#{i}"}}
-            - i += 1
-        .carousel-inner
-          - @images.each do |img|
-            - activity = img == @images.first ? 'active' : ''
-            .item{class: "#{activity}", id: "wrapper_of_img_#{img.id}"}
-              = image_tag img.file.url(:medium)
-              .carousel-caption
-                = img.name
-        = link_to '#gallery_carousel', role: 'button', data: {slide: 'prev'}, class: 'left carousel-control' do
-          %span.glyphicon.glyphicon-chevron-left
-        = link_to '#gallery_carousel', role: 'button', data: {slide: 'next'}, class: 'right carousel-control' do
-          %span.glyphicon.glyphicon-chevron-right
+        = link_to 'javascript:void(0)', data: {toggle: 'tooltip', placement: 'right'}, title: "#{img.name}", id: 'image_thumb' do
+          .thumbnail
+            - if user_signed_in?
+              .image_thumbnail_edit
+              .thumbnail_icons
+                = link_to edit_image_path(img) do
+                  %span{class: 'glyphicon glyphicon-edit'}
+                = link_to img, method: :delete, data: { confirm: 'Are you sure? This will delete image from all galleries!' } do
+                  %span{class: 'glyphicon glyphicon-trash'}
+            = link_to 'javascript:void(0)', data: {toggle: 'tooltip', placement: 'right'}, title: "#{img.name}", id: 'image_thumb' do
+              = image_tag img.file.url(:thumb), data: {id: "#{img.id}"}, class: 'gallery_thumb img_responsive'
 %br
 .row
   .col-md-12.thumb

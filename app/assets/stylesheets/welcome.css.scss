@@ -1,7 +1,7 @@
 .intro {
-  border:           1px solid red;
+  border:           $dev-border solid red;
   height:           100%;
-  background:       #ffffff image-url('intro/nager-intro-01.png') 0 0 no-repeat;
+  background:       #ffffff image-url('intro/nager-intro-01.png') 7% 0 no-repeat;
   background-size:  100% auto;
 }
 

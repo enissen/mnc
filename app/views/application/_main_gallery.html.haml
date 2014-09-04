@@ -1,0 +1,28 @@
+- if gallery?
+  .carousel_wrapper
+    .row
+      .col-md-12
+        #gallery_carousel.carousel{data: {ride: 'carousel'}}
+          .carousel-exit
+            = link_to 'javascript:void(0)' do
+              %span.glyphicon.glyphicon-remove-circle
+          %ol.carousel-indicators
+            - i = 0
+            - @images.each do |img|
+              - class_activity = img == @images.first ? 'active' : ''
+              %li.indicator{class: "#{class_activity}", id: "indicator_of_img_#{img.id}", data: {target: '#gallery_carousel', 'slide-to' => "#{i}"}}
+              - i += 1
+          .carousel-inner
+            - @images.each do |img|
+              - activity = img == @images.first ? 'active' : ''
+              .item{class: "#{activity}", id: "wrapper_of_img_#{img.id}"}
+                = image_tag img.file.url(:large)
+                .carousel-caption
+                  %h3= img.name
+                  %p= img.data
+                  - if img.description.present?
+                    %p= img.description
+          = link_to '#gallery_carousel', role: 'button', data: {slide: 'prev'}, class: 'left carousel-control' do
+            %span.glyphicon.glyphicon-chevron-left
+          = link_to '#gallery_carousel', role: 'button', data: {slide: 'next'}, class: 'right carousel-control' do
+            %span.glyphicon.glyphicon-chevron-right
