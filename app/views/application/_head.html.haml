@@ -1,13 +1,12 @@
 %head
-  %meta{ charset: 'utf-8' }/
-  %meta{ 'http-equiv' => 'X-UA-Compatible', content: 'IE=edge,chrome=1' }/
+  %meta{charset: 'utf-8'}/
+  %meta{'http-equiv' => 'X-UA-Compatible', content: 'IE=edge,chrome=1'}/
   %title
     == #{ controller.controller_name.titleize } - #{ controller.action_name.titleize }
-  %meta{ name: 'description', content: '' }/
-  %meta{ name: 'viewport', content: 'width=device-width' }/
+  %meta{name: 'description', content: ''}/
+  %meta{name: 'viewport', content: 'width=device-width'}/
   = render 'stylesheets'
   = stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Ruda'
-  = stylesheet_link_tag 'jquery.Jcrop'
-  = stylesheet_link_tag 'gray'
+  -#= stylesheet_link_tag 'jquery.Jcrop'
   = javascript_include_tag 'polyfills'
   = csrf_meta_tag
