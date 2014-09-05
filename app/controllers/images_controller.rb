@@ -21,7 +21,6 @@ class ImagesController < ApplicationController
           format.html { redirect_to @image, notice: 'Image was successfully created.' }
           format.json { render action: 'show', status: :created, location: @image }
         else
-          gon.image = image_to_gon
           format.html { render action: 'crop' }
           format.json { render action: 'crop', status: :cropping }
         end
@@ -43,7 +42,6 @@ class ImagesController < ApplicationController
           format.html { redirect_to @image, notice: 'Image was successfully updated.' }
           format.json { head :no_content }
         else
-          gon.image = image_to_gon
           format.html { render action: 'crop' }
           format.json { render action: 'crop', status: :cropping }
         end
@@ -66,14 +64,6 @@ class ImagesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_image
       @image = Image.find(params[:id])
-    end
-
-    def image_to_gon
-      { id:             @image.id,
-        original_width: @image.file_geometry(:original).width,
-        width:          @image.file_geometry(:thumb).width,
-        height:         @image.file_geometry(:thumb).height
-      }
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
