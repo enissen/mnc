@@ -23,7 +23,7 @@ Mnc::Application.routes.draw do
     get 'willkommen'    => 'welcome#default'
     get 'bienvenido'    => 'welcome#default'
 
-    root 'galleries#index'
+    root 'welcome#intro'
 
     as :user do
       get '/login'      => 'devise/sessions#new'
