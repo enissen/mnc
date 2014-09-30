@@ -16,7 +16,8 @@
             - @images.each do |img|
               - activity = img == @images.first ? 'active' : ''
               .item{class: "#{activity}", id: "wrapper_of_img_#{img.id}"}
-                = image_tag img.file.url(:large)
+                = link_to 'javascript:void(0)', class: 'img_showreel', data: { img_id: img.id } do
+                  = image_tag img.file.url(:large)
                 .carousel-caption
                   %h3= img.name
                   %p= img.data

@@ -28,15 +28,26 @@ $(document)
     $('.main_gallery').show()
 
   .on 'click', '.carousel-exit', ->
-    $('.main_gallery').hide()
-    $('.carousel_wrapper').hide()
+    exit_gallery()
     $('.mosaic').show()
+
+  .on 'click', '.showreel-exit', ->
+    $('.showreel').hide()
+
+  .on 'click', '.img_showreel', ->
+    $('.showreel').show()
+    for el in $('.showreel .img_wrapper')
+      $(el).hide()
+    $('.showreel #wrapper_of_' + $(@).data('img-id')).show()
 
 $(window).resize ->
   resize_thumbs()
+
+@exit_gallery = () ->
+  $('.main_gallery').hide()
+  $('.carousel_wrapper').hide()
 
 @resize_thumbs = () ->
   for el in ['.thumbnail_overlay', '.thumbnail_edit',]
     $(el).width($('.img-responsive').width())
   $('.image_thumbnail_edit').width($('.gallery_thumb').width())
-
