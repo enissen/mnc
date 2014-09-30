@@ -7,7 +7,7 @@ class GalleriesController < ApplicationController
   end
 
   def show
-    @images = @gallery.images
+    @images = @gallery.images.sort_by{ |img| img.position_for(@gallery) || 0 }
   end
 
   def new

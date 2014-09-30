@@ -14,8 +14,22 @@
   .form-group
     = f.file_field :file
   .form-group
-    = f.collection_select :gallery_ids, Gallery.all,:id,:title,{},{multiple: true,size: 5,class: 'form-control'}
+    = f.collection_select :gallery_ids, Gallery.all, :id, :title, {}, {multiple: true,size: 5,class: 'form-control'}
   .form-group
     = f.text_area :description, class: 'form-control huge_content', placeholder: 'description'
+  .form-group
+    Choose preferred position in galleries:
+    %br
+    - f.object.galleries.each do |g|
+      %p
+        %select{name: "image[gallery_position][#{g.id}]", data: {gallery: g.id}}
+          - (1..25).each do |i|
+            - if @image.position_for(g) == i
+              %option{value: i, selected: 'selected'} #{i}
+            - else
+              %option{value: i} #{i}
+        &nbsp; in: &nbsp;
+        %label{for: "gallery_position_#{g.id}"} #{g.title}
+
   .form-group
     = f.submit 'Save', class: 'btn btn-primary'

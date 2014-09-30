@@ -34,6 +34,7 @@ class ImagesController < ApplicationController
   def update
     respond_to do |format|
       if @image.update(image_params)
+        @image.update_positions params[:image][:gallery_position]
         if image_params[:file].blank?
           @image.reprocess_file(  params[:image][:crop_x],
                                   params[:image][:crop_y],

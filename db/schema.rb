@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(version: 20140929214840) do
     t.integer  "image_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "position"
   end
 
   create_table "image_translations", force: true do |t|

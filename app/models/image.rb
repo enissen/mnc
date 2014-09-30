@@ -8,6 +8,17 @@ class Image < ActiveRecord::Base
   has_many :galleries, through: :image_attachments
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
 
+  def update_positions(positions)
+    puts positions
+    positions.each do |i, pos|
+      self.image_attachments.where(gallery_id: i.to_i).first.update_attributes!(position: pos.to_i)
+    end
+  end
+
+  def position_for(gallery)
+    self.image_attachments.where(gallery_id: gallery.id).first.position
+  end
+
   def file_geometry(style = :original)
     @geometry        ||= {}
     @geometry[style] ||= Paperclip::Geometry.from_file(file.path(style))
