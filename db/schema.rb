@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140410133820) do
+ActiveRecord::Schema.define(version: 20140929214840) do
 
   create_table "contact_translations", force: true do |t|
     t.integer  "contact_id", null: false
@@ -26,6 +26,23 @@ ActiveRecord::Schema.define(version: 20140410133820) do
   add_index "contact_translations", ["locale"], name: "index_contact_translations_on_locale", using: :btree
 
   create_table "contacts", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "curriculum_vitae_translations", force: true do |t|
+    t.integer  "curriculum_vitae_id", null: false
+    t.string   "locale",              null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "title"
+    t.text     "content"
+  end
+
+  add_index "curriculum_vitae_translations", ["curriculum_vitae_id"], name: "index_curriculum_vitae_translations_on_curriculum_vitae_id", using: :btree
+  add_index "curriculum_vitae_translations", ["locale"], name: "index_curriculum_vitae_translations_on_locale", using: :btree
+
+  create_table "curriculum_vitaes", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -102,12 +119,6 @@ ActiveRecord::Schema.define(version: 20140410133820) do
     t.datetime "updated_at"
   end
 
-  create_table "statics", force: true do |t|
-    t.string   "identifier"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -125,5 +136,4 @@ ActiveRecord::Schema.define(version: 20140410133820) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-
 end
