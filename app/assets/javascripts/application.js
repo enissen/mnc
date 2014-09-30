@@ -16,5 +16,4 @@
 //= require turbolinks
 //= require bootstrap
 //= require jquery.Jcrop
-//= require gray
 //= require_tree .

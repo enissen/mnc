@@ -26,10 +26,6 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-# FRONTEND
-# -----------------------------
-gem 'rails-assets-gray'
-
 # SERVER
 # -----------------------------
 gem 'puma',                   '~> 2.8.2'
