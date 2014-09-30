@@ -1,0 +1,8 @@
+- if gallery?
+  .showreel
+    - @images.each do |img|
+      .img_wrapper{id: "wrapper_of_#{img.id}"}
+        = image_tag img.file.url(:large)
+  .showreel-exit
+    = link_to 'javascript:void(0)' do
+      %span.glyphicon.glyphicon-remove-circle
