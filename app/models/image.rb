@@ -9,10 +9,9 @@ class Image < ActiveRecord::Base
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
 
   def update_positions(positions)
-    puts positions
     positions.each do |i, pos|
       self.image_attachments.where(gallery_id: i.to_i).first.update_attributes!(position: pos.to_i)
-    end
+    end if positions.present?
   end
 
   def position_for(gallery)
